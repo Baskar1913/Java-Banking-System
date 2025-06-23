@@ -192,9 +192,3 @@ This section explains how to set up and run the project within Eclipse.
 ✅ The banking system UI will launch, and it will connect to the MySQL database.
 
 ---
-
-## 📜 License
-
-This project is created for educational and demonstration purposes. You may modify or extend it for your own use.
-
----

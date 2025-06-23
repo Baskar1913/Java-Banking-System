@@ -108,19 +108,34 @@ Logs details of closed customer accounts.
 
 ---
 
-Java-Banking-System/
-│
-├── src/
-│   └── BankAPP/
-│       └── [All your .java files]
-│
-├── lib/
-│   └── mysql-connector-java-8.x.xx.jar
-│
-├── resources/
-│   └── schema.sql  (optional MySQL export)
-│
-├── README.md
-├── .gitignore
-└── LICENSE (optional)
+## 🧪 How to Run This Project in Eclipse
 
+1. **Open Eclipse**
+   - Go to **File > Import > Existing Projects into Workspace**
+   - Select the project folder.
+
+2. **Add MySQL JDBC JAR to Build Path**
+   - Right-click your project → Build Path → Configure Build Path
+   - Go to **Libraries** → Click **Add External JARs...**
+   - Choose: `lib/mysql-connector-java-8.0.xx.jar`
+
+3. **Setup MySQL Database**
+   - Run the `schema.sql` (or manually create the schema/tables)
+   - Make sure the `DBConnection.java` file has correct DB credentials:
+     ```java
+     Connection con = DriverManager.getConnection(
+         "jdbc:mysql://localhost:3306/banksystem", "root", "yourpassword");
+     ```
+
+4. **Run the Main Class**
+   - Right-click `BankAppMain.java` or your starting UI class → Run As → Java Application
+
+---
+
+## 📦 How to Use the JAR File
+
+### ✅ Run JAR from Terminal (outside Eclipse)
+
+```bash
+cd dist
+java -jar BankApp.jar

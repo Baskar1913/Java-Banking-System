@@ -108,3 +108,19 @@ Logs details of closed customer accounts.
 
 ---
 
+Java-Banking-System/
+│
+├── src/
+│   └── BankAPP/
+│       └── [All your .java files]
+│
+├── lib/
+│   └── mysql-connector-java-8.x.xx.jar
+│
+├── resources/
+│   └── schema.sql  (optional MySQL export)
+│
+├── README.md
+├── .gitignore
+└── LICENSE (optional)
+

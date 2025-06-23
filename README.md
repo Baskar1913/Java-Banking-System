@@ -139,7 +139,7 @@ BankApp/
 
 ---
 
-### 🧬 Step 2: Add MySQL JDBC JAR to Build Path
+### 🧬 Step 2: Add JAR File to Build Path
 
 1. Right-click on the project (`BankApp`) → **Build Path > Configure Build Path**
 2. Go to the **Libraries** tab
@@ -155,26 +155,7 @@ BankApp/
 
 ---
 
-### 📚 Step 3: Download MySQL Connector JAR (If Not Present)
-
-If the JDBC driver JAR (`mysql-connector-j-9.3.0.jar`) is not in your `lib/` folder:
-
-1. Go to the official MySQL Connector/J download page:
-   👉 [https://dev.mysql.com/downloads/connector/j/](https://dev.mysql.com/downloads/connector/j/)
-
-2. Choose the platform-independent `.zip` or `.tar.gz` version
-
-3. Extract the download
-
-4. Copy the `.jar` file (e.g., `mysql-connector-j-9.3.0.jar`) into your project’s `lib/` folder
-
-5. Repeat **Step 2** to add it to Eclipse build path
-
-✅ Now your project can connect to MySQL using JDBC.
-
----
-
-### 🗃️ Step 4: Set Up the MySQL Database
+### 🗃️ Step 3: Set Up the MySQL Database
 
 1. Open your MySQL client (e.g., MySQL Workbench or terminal)
 
@@ -195,7 +176,7 @@ If the JDBC driver JAR (`mysql-connector-j-9.3.0.jar`) is not in your `lib/` fol
 
 ---
 
-### ▶️ Step 5: Run the Application
+### ▶️ Step 4: Run the Application
 
 1. Open:
 

@@ -129,20 +129,6 @@ This section explains how to set up and run the project within Eclipse.
 
 ---
 
-### ✅ Project Structure
-
-Ensure your project looks like this in Eclipse:
-
-```
-BankApp/
-🔹 src/
-🔹🔹 BankSystem/
-      🔹 BankEmployeeSystem.java
-      🔹 DBConnection.java
-🔹 lib/
-      🔹 mysql-connector-j-9.3.0.jar
-```
-
 * `src` contains your Java packages and source code
 * `lib` contains the MySQL JDBC driver `.jar`
 * The JAR appears under **Referenced Libraries** in Eclipse

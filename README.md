@@ -1,113 +1,39 @@
-# Java-Banking-System
-Java Swing Desktop Banking System with JDBC and MySQL Integration
+# 💻 Java Swing Desktop Banking System
 
-# 💻 Java Desktop Banking System
-
-A **Java-based desktop banking application** built with **Swing GUI**, **JDBC**, and **MySQL**. This project enables bank employees to manage customer data, perform account transactions, and view real-time transaction history — all from a secure desktop interface.
+A full-featured **Java desktop banking application** developed using **Java Swing**, **JDBC**, and **MySQL**. This system is designed for bank employees to manage customer accounts, perform transactions, and maintain real-time records via a modern, interactive interface.
 
 ---
 
-## 🔑 Developed By
+## 👨‍💼 Developed By
+
 **Baskar M**
 
 ---
 
 ## 🚀 Key Features
 
-- 🔐 Employee login system with last login tracking
-- 👤 Customer account creation, update, and deletion
-- 💰 Deposit and withdrawal transactions with descriptions
-- 📊 Balance enquiry and live account status
-- 📜 Transaction history with timestamps and IDs
-- 📝 Closure tracking with reason and final balance
-- ✅ Validations for Aadhar, PAN, and unique identifiers
+* 🔐 Employee login system with last login tracking
+* 👤 Customer account creation, update, and deletion
+* 💰 Deposit and withdrawal transactions with descriptions
+* 📈 Balance enquiry and live account status
+* 📜 Transaction history with timestamps and IDs
+* 📌 Closure tracking with reason and final balance
+* ✅ Validations for Aadhar, PAN, and unique identifiers
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Layer        | Technology       |
-|--------------|------------------|
-| Language     | Java             |
-| GUI          | Java Swing       |
-| Database     | MySQL            |
-| Connectivity | JDBC             |
-| Layout       | CardLayout + Panels |
-| IDE          | Eclipse          |
+| Layer        | Technology           |
+| ------------ | -------------------- |
+| Language     | Java                 |
+| GUI          | Java Swing           |
+| Database     | MySQL                |
+| Connectivity | JDBC                 |
+| Layout       | CardLayout + JPanels |
+| IDE          | Eclipse              |
 
 ---
-
-## 🗃️ Database: `banksystem`
-
-### 📁 Tables
-
-#### 🔹 `customers`
-Stores customer personal and account details.
-
-| Field                | Type                          | Key  | Description                      |
-|---------------------|-------------------------------|------|----------------------------------|
-| `account_number`     | BIGINT                        | PK   | Auto-incremented primary key     |
-| `first_name`         | VARCHAR(50)                   |      | Customer's first name            |
-| `last_name`          | VARCHAR(50)                   |      | Customer's last name             |
-| `dob`                | DATE                          |      | Date of birth                    |
-| `gender`             | ENUM('Male','Female','Other') |      | Gender                           |
-| `address`            | TEXT                          |      | Residential address              |
-| `city`               | VARCHAR(50)                   |      | City                             |
-| `state`              | VARCHAR(50)                   |      | State                            |
-| `pin_code`           | VARCHAR(10)                   |      | Postal code                      |
-| `mobile`             | VARCHAR(15)                   |      | Mobile number                    |
-| `email`              | VARCHAR(100)                  | YES  | Email (nullable)                 |
-| `aadhar_number`      | VARCHAR(20)                   | UNI  | Unique Aadhar number             |
-| `pan_number`         | VARCHAR(20)                   | UNI  | Unique PAN number                |
-| `account_type`       | ENUM('Savings','Current')     |      | Type of account                  |
-| `balance`            | DECIMAL(15,2)                 |      | Current account balance          |
-| `account_created_date` | DATETIME                   |      | Account creation timestamp       |
-| `account_status`     | ENUM('Active','Closed')       |      | Status of the account            |
-
----
-
-#### 🔹 `employees`
-Bank staff authentication and info.
-
-| Field        | Type          | Key  | Description                      |
-|--------------|---------------|------|----------------------------------|
-| `employee_id`| INT           | PK   | Auto-incremented ID              |
-| `username`   | VARCHAR(50)   | UNI  | Unique login username            |
-| `password`   | VARCHAR(100)  |      | Hashed password                  |
-| `full_name`  | VARCHAR(100)  |      | Full name                        |
-| `email`      | VARCHAR(100)  | UNI  | Unique email                     |
-| `last_login` | DATETIME      |      | Last login timestamp             |
-
----
-
-#### 🔹 `transactions`
-Tracks all customer transactions.
-
-| Field              | Type                                    | Key  | Description                      |
-|-------------------|-----------------------------------------|------|----------------------------------|
-| `transaction_id`   | VARCHAR(20)                             | PK   | Unique transaction ID            |
-| `account_number`   | BIGINT                                  | FK   | Associated customer account      |
-| `transaction_type` | ENUM('Deposit','Withdrawal','Transfer') |      | Type of transaction              |
-| `amount`           | DECIMAL(15,2)                           |      | Transaction amount               |
-| `transaction_date` | DATETIME                                |      | Transaction timestamp            |
-| `description`      | VARCHAR(255)                            | YES  | Additional info (nullable)       |
-
----
-
-#### 🔹 `account_closures`
-Logs details of closed customer accounts.
-
-| Field            | Type          | Key  | Description                      |
-|------------------|---------------|------|----------------------------------|
-| `closure_id`     | INT           | PK   | Auto-incremented ID              |
-| `account_number` | BIGINT        | FK   | Account being closed             |
-| `closure_date`   | DATETIME      |      | Timestamp of closure             |
-| `reason`         | TEXT          |      | Reason for closing account       |
-| `final_balance`  | DECIMAL(15,2) |      | Returned balance to customer     |
-| `handled_by`     | INT           | FK   | Employee who processed closure   |
-
----
-
 
 ## 📁 Project Structure
 
@@ -123,12 +49,83 @@ BankApp/
 
 ---
 
+## 🗓️ MySQL Database: `banksystem`
+
+### 🔹 Table: `customers`
+
+| Field                           | Type                          |
+| ------------------------------- | ----------------------------- |
+| account\_number                 | BIGINT (PK, auto-increment)   |
+| first\_name                     | VARCHAR(50)                   |
+| last\_name                      | VARCHAR(50)                   |
+| dob                             | DATE                          |
+| gender                          | ENUM('Male','Female','Other') |
+| address, city, state, pin\_code | Various                       |
+| mobile, email                   | VARCHAR                       |
+| aadhar\_number                  | VARCHAR(20) UNIQUE            |
+| pan\_number                     | VARCHAR(20) UNIQUE            |
+| account\_type                   | ENUM('Savings','Current')     |
+| balance                         | DECIMAL(15,2)                 |
+| account\_status                 | ENUM('Active','Closed')       |
+| account\_created\_date          | DATETIME                      |
+
+### 🔹 Table: `employees`
+
+| Field        | Type                |
+| ------------ | ------------------- |
+| employee\_id | INT (PK)            |
+| username     | VARCHAR(50) UNIQUE  |
+| password     | VARCHAR(100)        |
+| full\_name   | VARCHAR(100)        |
+| email        | VARCHAR(100) UNIQUE |
+| last\_login  | DATETIME            |
+
+### 🔹 Table: `transactions`
+
+| Field             | Type                                    |
+| ----------------- | --------------------------------------- |
+| transaction\_id   | VARCHAR(20) (PK)                        |
+| account\_number   | BIGINT (FK)                             |
+| transaction\_type | ENUM('Deposit','Withdrawal','Transfer') |
+| amount            | DECIMAL(15,2)                           |
+| transaction\_date | DATETIME                                |
+| description       | VARCHAR(255) (nullable)                 |
+
+### 🔹 Table: `account_closures`
+
+| Field           | Type          |
+| --------------- | ------------- |
+| closure\_id     | INT (PK)      |
+| account\_number | BIGINT (FK)   |
+| closure\_date   | DATETIME      |
+| reason          | TEXT          |
+| final\_balance  | DECIMAL(15,2) |
+| handled\_by     | INT (FK)      |
+
+---
+
 ## 🧪 How to Run This Project in Eclipse
 
 This section explains how to set up and run the project within Eclipse.
 
-* `src` contains your Java packages and source code: `BankEmployeeSystem.java` & `DBConnection.java`
-* `lib` contains the MySQL JDBC driver `.jar` file
+---
+
+### ✅ Project Structure
+
+Ensure your project looks like this in Eclipse:
+
+```
+BankApp/
+🔹 src/
+🔹🔹 BankSystem/
+      🔹 BankEmployeeSystem.java
+      🔹 DBConnection.java
+🔹 lib/
+      🔹 mysql-connector-j-9.3.0.jar
+```
+
+* `src` contains your Java packages and source code
+* `lib` contains the MySQL JDBC driver `.jar`
 * The JAR appears under **Referenced Libraries** in Eclipse
 
 ---
@@ -158,7 +155,26 @@ This section explains how to set up and run the project within Eclipse.
 
 ---
 
-### 🗃️ Step 3: Set Up the MySQL Database
+### 📚 Step 3: Download MySQL Connector JAR (If Not Present)
+
+If the JDBC driver JAR (`mysql-connector-j-9.3.0.jar`) is not in your `lib/` folder:
+
+1. Go to the official MySQL Connector/J download page:
+   👉 [https://dev.mysql.com/downloads/connector/j/](https://dev.mysql.com/downloads/connector/j/)
+
+2. Choose the platform-independent `.zip` or `.tar.gz` version
+
+3. Extract the download
+
+4. Copy the `.jar` file (e.g., `mysql-connector-j-9.3.0.jar`) into your project’s `lib/` folder
+
+5. Repeat **Step 2** to add it to Eclipse build path
+
+✅ Now your project can connect to MySQL using JDBC.
+
+---
+
+### 🗃️ Step 4: Set Up the MySQL Database
 
 1. Open your MySQL client (e.g., MySQL Workbench or terminal)
 
@@ -179,7 +195,7 @@ This section explains how to set up and run the project within Eclipse.
 
 ---
 
-### ▶️ Step 4: Run the Application
+### ▶️ Step 5: Run the Application
 
 1. Open:
 

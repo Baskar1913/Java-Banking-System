@@ -184,7 +184,7 @@ If the JDBC driver JAR (`mysql-connector-j-9.3.0.jar`) is not in your `lib/` fol
    CREATE DATABASE banksystem;
    ```
 
-3. Create the tables manually or import them using a provided `schema.sql` file
+3. You can manually create the tables using the table structures described above.
 
 4. Verify your DB connection code in `DBConnection.java`:
 

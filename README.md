@@ -127,8 +127,8 @@ BankApp/
 
 This section explains how to set up and run the project within Eclipse.
 
-* `src` contains your Java packages and source code `BankEmployeeSystem.java` `DBConnection.java`
-* `lib` contains the MySQL JDBC driver `.jar`
+* `src` contains your Java packages and source code: `BankEmployeeSystem.java` & `DBConnection.java`
+* `lib` contains the MySQL JDBC driver `.jar` file
 * The JAR appears under **Referenced Libraries** in Eclipse
 
 ---

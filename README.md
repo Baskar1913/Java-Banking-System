@@ -108,34 +108,109 @@ Logs details of closed customer accounts.
 
 ---
 
-## 🧪 How to Run This Project in Eclipse
 
-1. **Open Eclipse**
-   - Go to **File > Import > Existing Projects into Workspace**
-   - Select the project folder.
+## 📁 Project Structure
 
-2. **Add MySQL JDBC JAR to Build Path**
-   - Right-click your project → Build Path → Configure Build Path
-   - Go to **Libraries** → Click **Add External JARs...**
-   - Choose: `lib/mysql-connector-java-8.0.xx.jar`
-
-3. **Setup MySQL Database**
-   - Run the `schema.sql` (or manually create the schema/tables)
-   - Make sure the `DBConnection.java` file has correct DB credentials:
-     ```java
-     Connection con = DriverManager.getConnection(
-         "jdbc:mysql://localhost:3306/banksystem", "root", "yourpassword");
-     ```
-
-4. **Run the Main Class**
-   - Right-click `BankAppMain.java` or your starting UI class → Run As → Java Application
+```
+BankApp/
+🔹 src/
+🔹🔹 BankSystem/
+      🔹 BankEmployeeSystem.java
+      🔹 DBConnection.java
+🔹 lib/
+      🔹 mysql-connector-j-9.3.0.jar
+```
 
 ---
 
-## 📦 How to Use the JAR File
+## 🧪 How to Run This Project in Eclipse
 
-### ✅ Run JAR from Terminal (outside Eclipse)
+This section explains how to set up and run the project within Eclipse.
 
-```bash
-cd dist
-java -jar BankApp.jar
+---
+
+### ✅ Project Structure
+
+Ensure your project looks like this in Eclipse:
+
+```
+BankApp/
+🔹 src/
+🔹🔹 BankSystem/
+      🔹 BankEmployeeSystem.java
+      🔹 DBConnection.java
+🔹 lib/
+      🔹 mysql-connector-j-9.3.0.jar
+```
+
+* `src` contains your Java packages and source code
+* `lib` contains the MySQL JDBC driver `.jar`
+* The JAR appears under **Referenced Libraries** in Eclipse
+
+---
+
+### 🔧 Step 1: Import the Project
+
+1. Open Eclipse
+2. Go to **File > Import > Existing Projects into Workspace**
+3. Select the folder that contains `BankApp`
+4. Click **Finish**
+
+---
+
+### 🧬 Step 2: Add MySQL JDBC JAR to Build Path
+
+1. Right-click on the project (`BankApp`) → **Build Path > Configure Build Path**
+2. Go to the **Libraries** tab
+3. Click **Add JARs...**
+4. Select:
+
+   ```
+   lib/mysql-connector-j-9.3.0.jar
+   ```
+5. Click **Apply and Close**
+
+✅ Your project is now linked with the MySQL JDBC driver.
+
+---
+
+### 🗃️ Step 3: Set Up the MySQL Database
+
+1. Open your MySQL client (e.g., MySQL Workbench or terminal)
+
+2. Create the database:
+
+   ```sql
+   CREATE DATABASE banksystem;
+   ```
+
+3. Create the tables manually or import them using a provided `schema.sql` file
+
+4. Verify your DB connection code in `DBConnection.java`:
+
+   ```java
+   Connection con = DriverManager.getConnection(
+       "jdbc:mysql://localhost:3306/banksystem", "root", "yourpassword");
+   ```
+
+---
+
+### ▶️ Step 4: Run the Application
+
+1. Open:
+
+   ```
+   src > BankSystem > BankEmployeeSystem.java
+   ```
+
+2. Right-click → **Run As > Java Application**
+
+✅ The banking system UI will launch, and it will connect to the MySQL database.
+
+---
+
+## 📜 License
+
+This project is created for educational and demonstration purposes. You may modify or extend it for your own use.
+
+---

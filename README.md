@@ -150,6 +150,7 @@ BankApp/
    lib/mysql-connector-j-9.3.0.jar
    ```
 5. Click **Apply and Close**
+6. **NOTE:** JAR file is given
 
 ✅ Your project is now linked with the MySQL JDBC driver.
 
